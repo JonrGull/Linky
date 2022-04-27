@@ -1,12 +1,12 @@
-const express = require("express");
-//require knex, config it
-const router = express.Router();
-require("dotenv").config({
-  path: ".env.local",
-});
 
-router.get("/api", (req, res) => {
-  res.json({ message: "hello! from router server!" });
-});
+const res = require("express/lib/response");
+const PORT = process.env.PORT || 5000;
+const router = require("./routes");
 
-module.exports = router;
+const app = express();
+app.use(express.json());
+app.use("/", router);
+
+app.listen(PORT, () => {
+  console.log(`Server is ready and listening on port ${PORT}`);
+});
