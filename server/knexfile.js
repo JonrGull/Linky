@@ -1,7 +1,6 @@
 require("dotenv").config({
   path: "./.env.local",
 });
-
 //production env add
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
@@ -23,6 +22,7 @@ module.exports = {
       directory: "./db/seeds",
     },
   },
+
   production: {
     client: process.env.DB_CLIENT || "pg",
     connection: process.env.DATABASE_URL,

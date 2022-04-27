@@ -1,4 +1,4 @@
-const express = require("express");
+
 const res = require("express/lib/response");
 const PORT = process.env.PORT || 5000;
 const router = require("./routes");
