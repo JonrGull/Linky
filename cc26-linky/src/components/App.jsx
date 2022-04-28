@@ -3,6 +3,17 @@ import React from "react";
 import Navbar from "./Navbar";
 import Display from "./Display"
 import Input from "./Input";
+import axios from 'axios';
+import { useEffect, useState} from "react";
+// const [data, setData] = useState([]);
+
+// const fetchdata = async () => {
+//    await fetch("http://localhost:5000/api")
+//    .then(res => res.json)
+//    .then(data => setData(data))
+// };
+
+// useEffect(() => fetchdata(), []);
 
 export default function App() {
   return (
