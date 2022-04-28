@@ -23,8 +23,9 @@ router.use((req, res, next) => {
 });
 
 router.get("/api", async (req, res) => {
-  // const results = await knex.select("*").from("posts");
+  const results = await knex.select("*").from("posts");
   console.log("url ", process.env.DATABASE_URL);
+  console.log(results);
   // enable CORS dont remove
   // res.header("Access-Control-Allow-Origin", "*");
   // res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
@@ -33,7 +34,7 @@ router.get("/api", async (req, res) => {
   //   "Content-Type, Authorization, Content-Length, X-Requested-With"
   // );
 
-  res.status(200).send(`Log in stuff is ${process.env.DATABASE_URL}`);
+  res.status(200).send(JSON.stringify(results));
 });
 
 module.exports = router;
