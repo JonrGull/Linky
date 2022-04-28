@@ -11,29 +11,25 @@ export default function App() {
   const [data, setData] = useState(null); // array
 
   const fetchdata = async () => {
-  const response = await axios.get("http://localhost:9000/api");  
-  const info = response.data;
-  console.log(typeof info.link)
-  setData(info);
- }
+    const response = await axios.get("http://localhost:9000/api");  
+    const info = response.data;
+    console.log(typeof info.link);
+    setData(info);
+ };
   
  useEffect(() => {
-  fetchdata();
+　fetchdata();
+  console.log('DATA: ', data)
  }
  , []);
- 
- console.log("data",data);
- console.table(data)
  
 
   return (
       <div className="App">
         <Navbar />
-          <Input className="input-container" />
-            <Display content={data}/>
-      </div>
-      
-                      
+        <Input className="input-container" />
+        <Display content={data}/>
+      </div>                            
   );
 }
 
