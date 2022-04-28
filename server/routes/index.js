@@ -24,7 +24,7 @@ router.use((req, res, next) => {
 
 router.get("/api", async (req, res) => {
   console.log("The request was: ", req);
-  const results = await knex.select("*").from("posts");
+  // const results = await knex.select("*").from("posts");
 
   // enable CORS dont remove
   // res.header("Access-Control-Allow-Origin", "*");
@@ -34,7 +34,7 @@ router.get("/api", async (req, res) => {
   //   "Content-Type, Authorization, Content-Length, X-Requested-With"
   // );
 
-  res.status(200).json(results);
+  res.status(200).send("Luis would look cool with a fancy hat.");
 });
 
 module.exports = router;
