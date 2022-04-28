@@ -7,6 +7,11 @@ require("dotenv").config({
 });
 router.use(express.urlencoded({ extended: true }));
 
+router.get("/"),
+  async((req, res) => {
+    console.log("hello from the interwebs");
+  });
+
 router.get("/api", async (req, res) => {
   const results = await knex.select("*").from("posts");
 
