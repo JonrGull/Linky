@@ -3,7 +3,7 @@ const config = require("../knexfile");
 const knex = require("knex")(config);
 const router = express.Router();
 require("dotenv").config({
-  path: ".../.env.local",
+  path: "../.env.local",
 });
 router.use(express.urlencoded({ extended: true }));
 
