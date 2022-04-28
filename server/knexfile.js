@@ -50,9 +50,9 @@ module.exports = {
   connection: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false },
   migrations: {
-    directory: "./data/migrations",
+    directory: "./db/migrations",
   },
   seeds: {
-    directory: "./data/seeds",
+    directory: "./db/seeds",
   },
 };
