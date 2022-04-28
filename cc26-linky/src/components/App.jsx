@@ -5,24 +5,32 @@ import Display from "./Display"
 import Input from "./Input";
 import axios from 'axios';
 import { useEffect, useState} from "react";
-// const [data, setData] = useState([]);
 
-// const fetchdata = async () => {
-//    await fetch("http://localhost:5000/api")
-//    .then(res => res.json)
-//    .then(data => setData(data))
-// };
-
-// useEffect(() => fetchdata(), []);
 
 export default function App() {
+  const [data, setData] = useState(null); // array
+
+  const fetchdata = async () => {
+  const response = await axios.get("http://localhost:9000/api");  
+  const info = response.data;
+  console.log(typeof info.link)
+  setData(info);
+ }
+  
+ useEffect(() => {
+  fetchdata();
+ }
+ , []);
+ 
+ console.log("data",data);
+ console.table(data)
+ 
+
   return (
       <div className="App">
-        {/* <h1>I think peanut butter is underrated!</h1> 
-        <h2>With jelly. Jelly is good.</h2>  */}
         <Navbar />
           <Input className="input-container" />
-            <Display />
+            <Display content={data}/>
       </div>
       
                       
