@@ -7,24 +7,34 @@ require("dotenv").config({
 });
 router.use(express.urlencoded({ extended: true }));
 
-// router.get("/"),
-//   (req, res) => {
-//     console.log("hello from the interwebs");
-//     res.status(200).send("What do you want?");
-//   };
+router.get("/", (req, res) => {
+  console.log("hello from the interwebs");
+  res.status(200).send("What do you want?");
+});
+
+router.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 router.get("/api", async (req, res) => {
+  console.log("The request was: ", req);
   const results = await knex.select("*").from("posts");
 
   // enable CORS dont remove
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Authorization, Content-Length, X-Requested-With"
-  );
+  // res.header("Access-Control-Allow-Origin", "*");
+  // res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "Content-Type, Authorization, Content-Length, X-Requested-With"
+  // );
 
-  res.json(results);
+  res.status(200).json(results);
 });
 
 module.exports = router;
