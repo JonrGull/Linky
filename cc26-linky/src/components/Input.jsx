@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-export default function Input({ setUpload, upload}) {
+export default function Input({ setUpload, upload }) {
   const linkRef = useRef(null);
   const descriptionRef =useRef(null);
   const tagsRef = useRef(null);
