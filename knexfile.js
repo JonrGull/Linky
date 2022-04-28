@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: "../.env.local",
+  path: "./.env.local",
 });
 //production env add
 /**
@@ -50,9 +50,9 @@ module.exports = {
   connection: process.env.DATABASE_URL,
   // ssl: { rejectUnauthorized: false },
   migrations: {
-    directory: "./db/migrations",
+    directory: "./server/db/migrations",
   },
   seeds: {
-    directory: "./db/seeds",
+    directory: "./server/db/seeds",
   },
 };
