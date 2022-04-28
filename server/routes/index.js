@@ -2,9 +2,9 @@ const express = require("express");
 const config = require("../knexfile");
 const knex = require("knex")(config);
 const router = express.Router();
-// require("dotenv").config({
-//   path: ".../.env",
-// });
+require("dotenv").config({
+  path: "../.env",
+});
 router.use(express.urlencoded({ extended: true }));
 
 router.get("/", (req, res) => {
