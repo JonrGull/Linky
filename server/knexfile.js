@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: "./.env.local",
+  path: "../.env.local",
 });
 //production env add
 /**
@@ -35,8 +35,6 @@ require("dotenv").config({
 //     },
 //   },
 // };
-
-
 
 module.exports = {
   client: "postgresql",

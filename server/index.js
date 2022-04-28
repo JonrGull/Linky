@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 9000;
 const router = require("./routes");
 const cors = require("cors");
 const app = express();
+app.use(express.static(path.join(__dirname, "client/build")));
+
 app.use(express.json());
 app.use("/", router);
 // app.use(cors());
