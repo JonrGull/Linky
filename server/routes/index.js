@@ -3,7 +3,7 @@ const config = require("../knexfile");
 const knex = require("knex")(config);
 const router = express.Router();
 require("dotenv").config({
-  path: "../.env",
+  path: ".../.env",
 });
 router.use(express.urlencoded({ extended: true }));
 
@@ -24,7 +24,7 @@ router.use((req, res, next) => {
 
 router.get("/api", async (req, res) => {
   // const results = await knex.select("*").from("posts");
-  console.log("THE database name is: ", process.env.DB_NAME);
+  console.log("THE database URL STUFF: ", process.env.DB_URL);
 
   // enable CORS dont remove
   // res.header("Access-Control-Allow-Origin", "*");
@@ -34,7 +34,7 @@ router.get("/api", async (req, res) => {
   //   "Content-Type, Authorization, Content-Length, X-Requested-With"
   // );
 
-  res.status(200).send(`The database name is ${process.env.DB_NAME}`);
+  res.status(200).send(`Log in stuff is ${process.env.DATABASE_URL}`);
 });
 
 module.exports = router;
