@@ -8,8 +8,9 @@ require("dotenv").config({
 router.use(express.urlencoded({ extended: true }));
 
 router.get("/"),
-  async (req, res) => {
+  (req, res) => {
     console.log("hello from the interwebs");
+    res.status(200).send("What do you want?");
   };
 
 router.get("/api", async (req, res) => {
