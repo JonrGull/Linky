@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 const config = require("../knexfile");
 const knex = require("knex")(config);
-// app.use(express.static(path.join(__dirname, "/index")));
+// app.use(express.static(path.join(__dirname, "/build")));
 
 app.use(express.json());
 app.use("/", router);
