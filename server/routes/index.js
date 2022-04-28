@@ -37,4 +37,4 @@ router.get("/api", async (req, res) => {
 });
 
 module.exports = router;
-module.exports = knex(knexConfig[process.env.NODE_ENV || "development"]);
+// module.exports = knex(knexConfig[process.env.NODE_ENV || "development"]);
