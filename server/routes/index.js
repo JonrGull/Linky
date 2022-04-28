@@ -24,8 +24,12 @@ router.use((req, res, next) => {
 
 router.get("/api", async (req, res) => {
   // const results = await knex.select("*").from("posts");
-  console.log("THE database URL STUFF: ", process.env.DB_URL);
-
+  console.log("url ", process.env.DB_URL);
+  console.log("DB_HOST", process.env.DB_HOST);
+  console.log("DB_PORT", process.env.DB_PORT);
+  console.log("DB_NAME", process.env.DB_NAME);
+  console.log("DB_USER", process.env.DB_USER);
+  console.log("DB_PASSWORD", process.env.DB_PASSWORD);
   // enable CORS dont remove
   // res.header("Access-Control-Allow-Origin", "*");
   // res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
