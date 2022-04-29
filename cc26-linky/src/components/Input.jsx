@@ -7,6 +7,7 @@ export default function Input({ postData }) {
 
   let result;
   const pushedButton = () => {
+    const tagArray = [];
     result = {
       link: linkRef.current.value,
       description: descriptionRef.current.value,
@@ -24,36 +25,34 @@ export default function Input({ postData }) {
     <div className="input-container">
       <p className="inputMessage">Post your recommendation!</p>
       <div className="inputLink-box">
-          {" "}
-         <div className = "inputLabel"> Link </div>
-          <input
-            type="text"
-            className="input-box"
-            ref={linkRef}
-            placeholder="Please input your URL"
-          />
+        {" "}
+        <div className="inputLabel"> Link </div>
+        <input
+          type="text"
+          className="input-box"
+          ref={linkRef}
+          placeholder="Please input your URL"
+        />
       </div>
       <div className="inputDesc-box">
-       
-          {" "}
-         <div className = "inputLabel"> Description: </div>
-          <input
-            type="text"
-            className="input-box"
-            ref={descriptionRef}
-            placeholder="Please input your comment for the URL"
-          />
+        {" "}
+        <div className="inputLabel"> Description: </div>
+        <input
+          type="text"
+          className="input-box"
+          ref={descriptionRef}
+          placeholder="Please input your comment for the URL"
+        />
       </div>
       <div className="inputTag-box">
-          {" "}
-         <div className = "inputLabel"> Tags </div>
-          <input
+        {" "}
+        <div className="inputLabel"> Tags </div>
+        <input
           className="input-box"
-            type="text"
-            ref={tagsRef}
-            placeholder="separate with , for multiple tags"
-          />
-    
+          type="text"
+          ref={tagsRef}
+          placeholder="separate with , for multiple tags"
+        />
       </div>
       <button className="inputButton" onClick={uploadedData}>
         Post!
