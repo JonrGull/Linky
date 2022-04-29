@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   const [data, setData] = useState(null);
-  const [upload, setUpload] = useState(""); //post data
   const [keyword, setKeyword] = useState(""); //tag search data
 
   ////fetch data
@@ -26,10 +25,9 @@ export default function App() {
   };
   useEffect(() => {
     fetchdata();
-    // console.log('DATA: ', data)
   }, []);
 
-  ///tag search
+  
   function filterData(currentData) {
     console.log("currentData", currentData);
     const filtered = currentData.filter((item) => item.tags.includes(keyword));
@@ -37,7 +35,6 @@ export default function App() {
   }
 
   useEffect(() => {
-    // filterData(data)
   }, [keyword]);
 
   return (
@@ -49,7 +46,3 @@ export default function App() {
   );
 }
 
-//App -- Navbar, Input, Display
-//Navbar--Logo, SearchBar
-//Input-- InputBox, Button
-//Display-- Link and discriptions

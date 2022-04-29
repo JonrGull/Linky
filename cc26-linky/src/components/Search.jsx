@@ -8,14 +8,13 @@ export default function Search({ setKeyword , keyword}) {
     let key = searchRef.current.value;
     if(key){
       setKeyword(searchRef.current.value);
-      // console.log(keyword);
     } 
   }
 
   return (
     <div className="search">
       <label>Tag Search</label>
-        <input type="text" ref={searchRef} placeholder="Put your interests!" />
+        <input type="text" className ="searchGo"ref={searchRef} placeholder="Put your interests!" />
         <button className="searchB" onClick={() => updateKey()} >Go!</button>
     </div>
   );

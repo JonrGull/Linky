@@ -24,42 +24,40 @@ export default function Input({ postData }) {
     <div className="input-container">
       <p className="inputMessage">Post your recommendation!</p>
       <div className="inputLink-box">
-        <label>
           {" "}
-          Link:
+         <div className = "inputLabel"> Link </div>
           <input
             type="text"
+            className="input-box"
             ref={linkRef}
             placeholder="Please input your URL"
           />
-        </label>
       </div>
       <div className="inputDesc-box">
-        <label>
+       
           {" "}
-          Description:
+         <div className = "inputLabel"> Description: </div>
           <input
             type="text"
+            className="input-box"
             ref={descriptionRef}
             placeholder="Please input your comment for the URL"
           />
-        </label>
       </div>
       <div className="inputTag-box">
-        <label>
           {" "}
-          Tags:
+         <div className = "inputLabel"> Tags </div>
           <input
+          className="input-box"
             type="text"
             ref={tagsRef}
             placeholder="separate with , for multiple tags"
           />
-        </label>
+    
       </div>
       <button className="inputButton" onClick={uploadedData}>
         Post!
       </button>
-      {/* <button onClick={()=>alert(tagsRef.current.value)}>test!</button> */}
     </div>
   );
 }
