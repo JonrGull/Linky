@@ -1,12 +1,11 @@
 import React, { useRef } from "react";
 
-
-export default function Search({ setKeyword , keyword}) {
+export default function Search({ setKeyword, keyword }) {
   const searchRef = useRef(null);
 
   function updateKey() {
     let key = searchRef.current.value;
-    if(key){
+    if (key) {
       setKeyword(searchRef.current.value);
     } 
   }
