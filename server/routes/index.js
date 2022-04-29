@@ -12,7 +12,6 @@ require("dotenv").config({
 router.use(express.urlencoded({ extended: true }));
 
 router.get("/", (req, res) => {
-  console.log("hello from the interwebs");
   res.status(200).send("What do you want?");
 });
 
@@ -28,10 +27,9 @@ router.use((req, res, next) => {
 
 router.get("/api", async (req, res) => {
   const results = await knex.select("*").from("posts");
-  console.log("url ", process.env.DATABASE_URL);
-  console.log(results);
   res.status(200).send(JSON.stringify(results));
 });
+
 
 router.get("/tags", async (req, res) => {
   const input = req.query;
@@ -57,5 +55,4 @@ router.post("/newpost", async (req, res) => {
   });
 });
 module.exports = router;
-// module.exports = knex(knexConfig[process.env.NODE_ENV || "development"]);
-// "build": "cd <fe directory> && npm run build"
+
