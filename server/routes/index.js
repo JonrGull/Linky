@@ -34,22 +34,18 @@ router.get("/api", async (req, res) => {
 });
 
 router.get("/tags", async (req, res) => {
-  const tags = req.body.tags;
+  const input = req.body.tags;
+  const tags = await knex.select("id", "tags").from("posts");
+  const validPosts = tags
+    .filter((el) => el.tags.includes("cat"))
+    .map((el) => el.id);
 
-  //knex('users').where({
-  //   first_name: 'Test',
-  //   last_name:  'User'
-  // }).select('id')
-
-  const filterPosts = await knex
-    .select("link", "tags", "description")
+  const output = await knex
+    .select("id", "link", "tags", "description")
     .from("posts")
-    .whereIn("tags", tags);
+    .whereIn("id", validPosts);
 
-  //DATA WE WANT RETURNED
-  // //table.string("link").notNullable();
-  // table.json("tags");
-  // table.string("description");
+  res.status(202).send(output);
 });
 
 //Post request
@@ -57,10 +53,8 @@ router.post("/newpost", async (req, res) => {
   await knex("posts").insert({
     link: req.body.link,
     description: req.body.description,
-    tags: { tags: req.body.tags.split(",") },
+    tags: JSON.stringify(req.body.tags.split(",")),
   });
-  console.log("posting");
-  console.log(req.body);
 });
 module.exports = router;
 // module.exports = knex(knexConfig[process.env.NODE_ENV || "development"]);
