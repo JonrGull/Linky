@@ -3,6 +3,7 @@ const config = require("../../knexfile");
 const knex = require("knex")(config);
 const router = express.Router();
 const cors = require("cors");
+const { async } = require("rxjs");
 router.use(cors());
 
 require("dotenv").config({
@@ -30,6 +31,25 @@ router.get("/api", async (req, res) => {
   console.log("url ", process.env.DATABASE_URL);
   console.log(results);
   res.status(200).send(JSON.stringify(results));
+});
+
+router.get("/tags", async (req, res) => {
+  const tags = req.body.tags;
+
+  //knex('users').where({
+  //   first_name: 'Test',
+  //   last_name:  'User'
+  // }).select('id')
+
+  const filterPosts = await knex
+    .select("link", "tags", "description")
+    .from("posts")
+    .whereIn("tags", tags);
+
+  //DATA WE WANT RETURNED
+  // //table.string("link").notNullable();
+  // table.json("tags");
+  // table.string("description");
 });
 
 //Post request
