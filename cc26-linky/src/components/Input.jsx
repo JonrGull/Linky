@@ -11,6 +11,9 @@ export default function Input({ postData }) {
       description: descriptionRef.current.value,
       tags: tagsRef.current.value,
     };
+    linkRef.current.value = "";
+    descriptionRef.current.value = "";
+    tagsRef.current.value = "";
     return result;
   };
 
