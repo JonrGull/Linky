@@ -18,6 +18,6 @@
     "migrate": "npx knex migrate:latest",
     "seed": "npx knex seed:run",
     "knex": "knex",
-    "build": "cd ./cc26-linky && npm run build"
+    "build": "cd ./cc26-linky && npm install && npm run build"
   }
 }
