@@ -1,10 +1,13 @@
 const path = require("path");
 const express = require("express");
-const res = require("express/lib/response");
 const PORT = process.env.PORT || 9000;
 const router = require("./routes");
 const cors = require("cors");
 const app = express();
+const config = require("../knexfile");
+const knex = require("knex")(config);
+// app.use(express.static(path.join(__dirname, "/build")));
+
 app.use(express.json());
 app.use("/", router);
 // app.use(cors());
