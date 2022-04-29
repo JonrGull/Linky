@@ -6,7 +6,6 @@ const cors = require("cors");
 const app = express();
 const config = require("../knexfile");
 const knex = require("knex")(config);
-const path = require("path");
 
 app.use(express.static(path.join(__dirname, "../cc26-linky/build")));
 
