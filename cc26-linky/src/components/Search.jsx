@@ -1,19 +1,15 @@
 import axios from "axios";
 import React, { useRef } from "react";
 
-export default function Search({ setKeyword, keyword }) {
+export default function Search({ setData }) {
   const searchRef = useRef(null);
 
-  function updateKey() {
-    let key = searchRef.current.value;
-    if (key) {
-      setKeyword(searchRef.current.value);
-    }
-  }
-
-  const requestTag = () => {
-    let key = searchRef.current.value;
-    axios.get("https://cc26-linky.herokuapp.com/tags");
+  const requestTag = async () => {
+    let tag = searchRef.current.value;
+    const results = await axios.get(
+      `https://cc26-linky.herokuapp.com/tags/${tag}`
+    );
+    setData(results.data);
   };
 
   return (
@@ -25,7 +21,7 @@ export default function Search({ setKeyword, keyword }) {
         ref={searchRef}
         placeholder="Put your interests!"
       />
-      <button className="searchB" onClick={() => updateKey()}>
+      <button className="searchB" onClick={requestTag}>
         Go!
       </button>
     </div>

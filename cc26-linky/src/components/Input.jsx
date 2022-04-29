@@ -5,10 +5,8 @@ export default function Input({ postData }) {
   const descriptionRef = useRef(null);
   const tagsRef = useRef(null);
 
-  let result;
   const pushedButton = () => {
-    const tagArray = [];
-    result = {
+    let result = {
       link: linkRef.current.value,
       description: descriptionRef.current.value,
       tags: tagsRef.current.value,
