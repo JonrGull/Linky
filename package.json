@@ -15,8 +15,9 @@
   "scripts": {
     "start": "node ./server/index.js",
     "webpack": "webpack",
-    "migrate": "knex migrate:latest",
-    "seed": "knex seed:run",
-    "knex": "knex"
+    "migrate": "npx knex migrate:latest",
+    "seed": "npx knex seed:run",
+    "knex": "knex",
+    "build": "cd ./cc26-linky && npm install && npm run build"
   }
 }
