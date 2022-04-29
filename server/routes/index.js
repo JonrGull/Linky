@@ -34,10 +34,10 @@ router.get("/api", async (req, res) => {
 });
 
 router.get("/tags", async (req, res) => {
-  const input = req.body.tags;
+  const input = req.query;
   const tags = await knex.select("id", "tags").from("posts");
   const validPosts = tags
-    .filter((el) => el.tags.includes("cat"))
+    .filter((el) => el.tags.includes("input"))
     .map((el) => el.id);
 
   const output = await knex
