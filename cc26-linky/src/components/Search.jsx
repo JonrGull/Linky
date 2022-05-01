@@ -5,7 +5,8 @@ export default function Search({ setData }) {
   const searchRef = useRef(null);
 
   const requestTag = async () => {
-    let tag = searchRef.current.value;
+    let tag = searchRef.current.value.toLowerCase();
+    console.log("tag:", tag);
     const results = await axios.get(
       `https://cc26-linky.herokuapp.com/tags/${tag}`
     );

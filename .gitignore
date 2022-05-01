@@ -1,6 +1,2 @@
 node_modules
-<<<<<<< HEAD
 .env
-=======
-.env
->>>>>>> 660cc9b (chore: organize CSS files and fix CSS bug.)
