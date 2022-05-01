@@ -4,9 +4,10 @@
   width: auto;
 }
 .inputMessage {
-  margin-top: 20px;
+  margin-top: 25px;
   font-weight: bolder;
   font: navy;
+  font-size: 1.5em;
 }
 
 .inputButton {
