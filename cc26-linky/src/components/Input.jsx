@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-
+import "../Input.css";
 export default function Input({ postData }) {
   const linkRef = useRef(null);
   const descriptionRef = useRef(null);
