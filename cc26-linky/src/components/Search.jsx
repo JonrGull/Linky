@@ -11,6 +11,7 @@ export default function Search({ setData }) {
     );
     setData(results.data);
   };
+
   return (
     <div className="search">
       <label>Tag Search</label>

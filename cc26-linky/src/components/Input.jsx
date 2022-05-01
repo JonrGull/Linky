@@ -42,7 +42,7 @@ export default function Input({ postData }) {
           type="text"
           className="input-box"
           ref={descriptionRef}
-          placeholder="Please input your comment for the URL"
+          placeholder="Please write a description"
         />
       </div>
       <div className="inputTag-box">
@@ -52,7 +52,7 @@ export default function Input({ postData }) {
           className="input-box"
           type="text"
           ref={tagsRef}
-          placeholder="separate with , for multiple tags"
+          placeholder='separate with "," and no space'
         />
       </div>
       <button className="inputButton" onClick={uploadedData}>
