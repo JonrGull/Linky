@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "./Search";
 import linkylogoonobg from "../images/linkyLogoonobg.png";
+import "../Navbar.css";
 
 export default function Navbar({ setData }) {
   return (
@@ -8,6 +9,7 @@ export default function Navbar({ setData }) {
       <div className="logo">
         <img src={linkylogoonobg} alt="LINKY" />
       </div>
+
       <Search setData={setData} />
     </div>
   );

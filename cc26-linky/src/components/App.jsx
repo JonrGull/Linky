@@ -1,9 +1,9 @@
-import "../App.css";
 import React from "react";
 import Navbar from "./Navbar";
 import Display from "./Display";
 import Input from "./Input";
 import axios from "axios";
+import "../App.css";
 import { useEffect, useState } from "react";
 
 export default function App() {
