@@ -44,7 +44,7 @@ router.post("/newpost", async (req, res) => {
   await knex("posts").insert({
     link: req.body.link,
     description: req.body.description,
-    tags: JSON.stringify(req.body.tags.split(", " || ",")),
+    tags: JSON.stringify(req.body.tags.split(", ")),
   });
 });
 
