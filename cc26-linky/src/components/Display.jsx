@@ -15,6 +15,10 @@ export default function Display({ content }) {
     "Don't lick the link!!",
   ];
 
+   function hashtags(val) {
+    return `#${val} `
+  }
+
   if (content !== null) {
     return (
       <div className="display-container">
@@ -27,8 +31,7 @@ export default function Display({ content }) {
                 {clickTitles[Math.floor(Math.random() * 10)]}
               </a>
               <p className="item-desc">{item.description}</p>
-              <p className="item-desc">Tags: {item.tags}</p>
-
+              <p className="item-desc">Tags: {item.tags.map(val => hashtags(val))}</p>
 
             </div>
           );
