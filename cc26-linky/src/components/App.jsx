@@ -44,9 +44,10 @@ export default function App() {
 
   return (
     <div className="App">
-      <Navbar setData={setData} />
+      <Navbar setData={setData} fetchData={fetchData}/>
       <Input postData={postData} colorChoice={colorChoice} />
-      <Display content={data} postColor={postColor} />
+      <Display content={data} postColor={postColor} setData={setData} />
+
     </div>
   );
 }
