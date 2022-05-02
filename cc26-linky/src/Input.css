@@ -1,12 +1,14 @@
+Input.css
+
 .input-container {
   display: flex;
   flex-direction: column;
   width: auto;
 }
 .inputMessage {
-  margin-top: 1em;
+  margin-top: 25px;
   font-weight: bolder;
-  font: rgb(1, 241, 29);
+  font: navy;
   font-size: 1.5em;
 }
 
@@ -20,19 +22,31 @@
   font-size: 20px;
 }
 
-.inputButton:hover {
-  background-color: #70DAFF;
-}
-
 .inputLink-box,
 .inputDesc-box,
 .inputTag-box {
   margin-top: 10px;
-  text-align: center;
   margin-bottom: 10px;
 }
 .input-box {
-  padding: 1em 5em;
+  padding: 20px 50px;
   border: solid rgb(197, 197, 230);
   border-radius: 15px;
+}
+
+.colors {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+.color {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: 0.5vh;
+  margin-right: 0.5vh;
+  margin-bottom: 2vh;
 }

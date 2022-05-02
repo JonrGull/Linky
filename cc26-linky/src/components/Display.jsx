@@ -1,7 +1,7 @@
 import React from "react";
 import "../Display.css";
 
-export default function Display({ content }) {
+export default function Display({ content, postColor }) {
   let clickTitles = [
     'Click the link!',
     'Click the link!',
@@ -21,12 +21,12 @@ export default function Display({ content }) {
 
   if (content !== null) {
     return (
-      <div className="display-container">
+      <div className="display-container" >
         <p className="displayMessage">Find your favourites</p>
         {content.map((item, index) => {
           const itemUrl = item.link;
           return (
-            <div className="item-container" key={index}>
+            <div className="item-container" key={index} style={{background: postColor.target.style.background}}>
               <a href={itemUrl} target="_blank">
                 {clickTitles[Math.floor(Math.random() * 10)]}
               </a>
