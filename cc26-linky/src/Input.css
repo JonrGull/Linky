@@ -4,9 +4,9 @@
   width: auto;
 }
 .inputMessage {
-  margin-top: 25px;
+  margin-top: 1em;
   font-weight: bolder;
-  font: navy;
+  font: rgb(1, 241, 29);
   font-size: 1.5em;
 }
 
@@ -20,14 +20,19 @@
   font-size: 20px;
 }
 
+.inputButton:hover {
+  background-color: #70DAFF;
+}
+
 .inputLink-box,
 .inputDesc-box,
 .inputTag-box {
   margin-top: 10px;
+  text-align: center;
   margin-bottom: 10px;
 }
 .input-box {
-  padding: 20px 50px;
+  padding: 1em 5em;
   border: solid rgb(197, 197, 230);
   border-radius: 15px;
 }
