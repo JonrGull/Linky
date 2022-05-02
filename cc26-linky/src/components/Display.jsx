@@ -2,6 +2,7 @@ import React from 'react';
 import '../Display.css';
 import axios from 'axios';
 export default function Display({ content, setData, postColor }) {
+  
   let clickTitles = [
     'Click the link!',
     'Click the link!',
@@ -48,7 +49,7 @@ export default function Display({ content, setData, postColor }) {
         {content.map((item, index) => {
           const itemUrl = item.link;
           return (
-            <div className="item-container" key={index} style={{background: postColor.target.style.background}}>
+            <div className="item-container" key={index} style={{background: postColor ? postColor.target.style.background : 'white'}}>
               <a href={itemUrl} target="_blank">
                 {clickTitles[Math.floor(Math.random() * 10)]}
               </a>

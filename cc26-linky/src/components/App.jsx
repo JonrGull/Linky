@@ -34,9 +34,6 @@ export default function App() {
     setPostColor(color)
   }
 
-  useEffect(() => {
-    console.log("Picked", postColor.target.style.background)
-  }, [postColor])
 
   useEffect(() => {
     fetchdata();
@@ -44,7 +41,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Navbar setData={setData} fetchData={fetchData}/>
+      <Navbar setData={setData} fetchData={fetchdata}/>
       <Input postData={postData} colorChoice={colorChoice} />
       <Display content={data} postColor={postColor} setData={setData} />
 
