@@ -42,7 +42,7 @@ export default function Input({ postData }) {
           type="text"
           className="input-box"
           ref={descriptionRef}
-          placeholder="Please write a description"
+          placeholder="Link description"
         />
       </div>
       <div className="inputTag-box">

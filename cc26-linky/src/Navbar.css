@@ -6,7 +6,7 @@ label {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  background: linear-gradient(to top, #eef606 0%, #05f118 100%);
   font-size: 20px;
 }
 
@@ -26,18 +26,26 @@ label {
   align-items: center;
   font-weight: bolder;
   margin-left: auto;
+  margin-right: 2em;
   margin-top: auto;
   margin-bottom: auto;
   font-size: 20px;
 }
+
 .searchGo {
   padding: 7px 5px;
-  border-radius: 20px;
+  border-radius: 8px;
+  border: 0;
 }
 
 .searchB {
   border: solid black;
-  border-radius: 25px 25px 25px 25px;
-  margin-top: 5px;
+  border-radius: 2em 2em 2em 2em;
+  margin-top: 1em;
   font-size: 20px;
+  border: 0;
+}
+
+.searchB:hover {
+  background-color: #cfcfcf;
 }
