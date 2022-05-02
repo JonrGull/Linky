@@ -2,6 +2,19 @@ import React from "react";
 import "../Display.css";
 
 export default function Display({ content }) {
+  let clickTitles = [
+    'Click the link!',
+    'Click the link!',
+    'Click the link!',
+    'Click the link!',
+    'Click the link!',
+    'Click the link!',
+    'Click the link!',
+    'Lick the link!',
+    'Lick the link!',
+    "Don't lick the link!!",
+  ];
+
   if (content !== null) {
     return (
       <div className="display-container">
@@ -10,8 +23,13 @@ export default function Display({ content }) {
           const itemUrl = item.link;
           return (
             <div className="item-container" key={index}>
-              <a href={itemUrl}>Don't lick the link!</a>
+              <a href={itemUrl} target="_blank">
+                {clickTitles[Math.floor(Math.random() * 10)]}
+              </a>
               <p className="item-desc">{item.description}</p>
+              <p className="item-desc">Tags: {item.tags}</p>
+
+
             </div>
           );
         })}
@@ -21,3 +39,4 @@ export default function Display({ content }) {
     return <div> Loading....</div>;
   }
 }
+
