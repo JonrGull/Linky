@@ -2,20 +2,38 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-// import { GiphyFetch } from "@giphy/js-fetch-api";
+import { GiphyFetch } from "@giphy/js-fetch-api";
 
 export default function DisplayGif() {
   const [gif, setGif] = useState([]);
 
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       const results = await axios("https://api.giphy.com/v1/gifs/trending", {
+  //         params: {
+  //           api_key: "cN5p0tgnWScP40vsvlC56bgo38X4Pr95",
+  //           limit: 10,
+  //         },
+  //       });
+  //       console.log(results);
+  //       setGif(results.data.data);
+  //     };
+
+  //     fetchData();
+  //   }, []);
+
+  const gf = new GiphyFetch("cN5p0tgnWScP40vsvlC56bgo38X4Pr95");
+
   useEffect(() => {
     const fetchData = async () => {
-      const results = await axios("https://api.giphy.com/v1/gifs/trending", {
-        params: {
-          api_key: "cN5p0tgnWScP40vsvlC56bgo38X4Pr95",
-          limit: 10,
-        },
-      });
-      setGif(results.data.data);
+      try {
+        const response = await gf.search("cat", { limit: 2 });
+        const gifArray = response.data;
+        setGif(gifArray);
+        console.log(`random`, response);
+      } catch (error) {
+        console.error(`random`, error);
+      }
     };
 
     fetchData();
