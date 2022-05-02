@@ -26,7 +26,6 @@ export default function Input({ postData }) {
     <div className="input-container">
       <p className="inputMessage">Post your recommendation!</p>
       <div className="inputLink-box">
-        {" "}
         <div className="inputLabel"> Link </div>
         <input
           type="text"
@@ -36,7 +35,6 @@ export default function Input({ postData }) {
         />
       </div>
       <div className="inputDesc-box">
-        {" "}
         <div className="inputLabel"> Description: </div>
         <input
           type="text"
@@ -46,7 +44,6 @@ export default function Input({ postData }) {
         />
       </div>
       <div className="inputTag-box">
-        {" "}
         <div className="inputLabel"> Tags </div>
         <input
           className="input-box"

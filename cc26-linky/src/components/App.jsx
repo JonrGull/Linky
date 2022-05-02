@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 export default function App() {
   const [data, setData] = useState(null);
 
-  const fetchdata = async () => {
+  const fetchData = async () => {
     const response = await axios.get("https://cc26-linky.herokuapp.com/api");
     const info = response.data;
     setData(info);
@@ -17,16 +17,16 @@ export default function App() {
 
   const postData = async (data) => {
     await axios.post("https://cc26-linky.herokuapp.com/newpost", data);
-    fetchdata();
+    fetchData();
   };
 
   useEffect(() => {
-    fetchdata();
+    fetchData();
   }, []);
 
   return (
     <div className="App">
-      <Navbar setData={setData} />
+      <Navbar setData={setData} fetchData={fetchData} />
       <Input postData={postData} />
       <Display content={data} />
     </div>

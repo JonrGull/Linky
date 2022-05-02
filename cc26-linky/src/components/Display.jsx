@@ -32,7 +32,6 @@ export default function Display({ content }) {
               </a>
               <p className="item-desc">{item.description}</p>
               <p className="item-desc">Tags: {item.tags.map(val => hashtags(val))}</p>
-
             </div>
           );
         })}
