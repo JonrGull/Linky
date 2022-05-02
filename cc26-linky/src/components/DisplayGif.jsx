@@ -2,29 +2,36 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import { GiphyFetch } from "@giphy/js-fetch-api";
+// import { GiphyFetch } from "@giphy/js-fetch-api";
 
 export default function DisplayGif() {
-  //can i use get the tags value from Display?
-
-  const [gif, setGif] = useState(null);
+  const [gif, setGif] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const results = await axios("https://api.giphy.com/v1/gifs/trending", {
         params: {
           api_key: "cN5p0tgnWScP40vsvlC56bgo38X4Pr95",
-          limit: 2,
+          limit: 10,
         },
       });
-      console.log(results);
-      setGif(results);
+      setGif(results.data.data);
     };
 
     fetchData();
   }, []);
 
-  return <div>DisplayGif!!!!!! </div>;
+  const renderGifs = () => {
+    return gif.map((el) => {
+      return (
+        <div key={el.id} className="gif-container">
+          <img src={el.images.fixed_height.url} alt={el.title} />
+        </div>
+      );
+    });
+  };
+
+  return <div>{renderGifs()} </div>;
 }
 
 // cN5p0tgnWScP40vsvlC56bgo38X4Pr95
