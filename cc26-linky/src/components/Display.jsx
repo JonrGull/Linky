@@ -59,9 +59,9 @@ export default function Display({ content, setData }) {
                   item.tags
                     .map((val) => hashtags(val))
                     .map((val) => moreHashtags(val))
-                  // .map((v => `#${v} `))
                 }
               </p>
+
             </div>
           );
         })}
