@@ -17,16 +17,13 @@ export default function Input({ postData, colorChoice }) {
     return result;
   };
 
-  // const pickColor = () => {
+
     const colors = ["#FA8072", "#FFD700", "#BDB76B", "#DDA0DD", "#90EE90", "#00FFFF"];
     const children = colors.map((val, i) => {
-      console.log(val)
       return <div className="color" key={i} style={{background: val}} onClick={colorChoice}></div>
       
      })
-  //    return children;
-  // }
-  // addColors();
+
 
   function uploadedData() {
     let data = pushedButton();
