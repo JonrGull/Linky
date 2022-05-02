@@ -6,12 +6,10 @@ import axios from "axios";
 import "../App.css";
 import { useEffect, useState } from "react";
 
-import { GiphyFetch } from "@giphy/js-fetch-api";
-import { IGif } from "@giphy/js-types";
 
 export default function App() {
   const [data, setData] = useState(null);
-  // const [gif, setGif] = useState(null);
+
 
   const fetchData = async () => {
     const response = await axios.get("https://cc26-linky.herokuapp.com/api");
@@ -24,16 +22,7 @@ export default function App() {
     fetchData();
   };
 
-  const giphyFetch = new GiphyFetch("sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh");
 
-  function GifDemo() {
-    const [gif, setGif] = useState(null);
-    async () => {
-      const { data } = await giphyFetch.gif("fpXxIjftmkk9y");
-      setGif(data);
-    };
-    return gif && <Gif gif={gif} width={200} />;
-  }
 
   useEffect(() => {
     fetchData();
