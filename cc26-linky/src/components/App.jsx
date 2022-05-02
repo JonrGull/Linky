@@ -28,7 +28,7 @@ export default function App() {
     <div className="App">
       <Navbar setData={setData} />
       <Input postData={postData} />
-      <Display content={data} />
+      <Display content={data} setData={setData}/>
     </div>
   );
 }
