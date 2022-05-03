@@ -34,9 +34,8 @@ export default function Display({ content }) {
               <p className="item-desc">
                 Tags: {item.tags.map((val) => hashtags(val))}
                 {/* apply display gif to each  */}
-              <DisplayGif />
-                
               </p>
+                <DisplayGif />
             </div>
           );
         })}

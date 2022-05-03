@@ -25,7 +25,7 @@ export default function DisplayGif() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await gf.random();
+        const response = await gf.random({ rating: "g" });
         const gifArray = response.data;
         setGif([...gif, gifArray]);
         console.log(`random`, response);
