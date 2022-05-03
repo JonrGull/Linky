@@ -10,6 +10,7 @@ export default function App() {
   const [data, setData] = useState(null);
   const [postColor, setPostColor] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
+  const [update, setUpdate] = useState(0);
 
   const fetchData = async () => {
     const response = await axios.get("/api");
@@ -30,6 +31,10 @@ export default function App() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    fetchData();
+  }, [update]);
+
   return (
     <div className={darkMode ? "App-dark" : "App"}>
       <Navbar
@@ -42,12 +47,16 @@ export default function App() {
         postData={postData}
         colorChoice={colorChoice}
         darkMode={darkMode}
+        setUpdate={setUpdate}
+        update={update}
       />
       <Display
         content={data}
         postColor={postColor}
         setData={setData}
         darkMode={darkMode}
+        setUpdate={setUpdate}
+        update={update}
       />
     </div>
   );

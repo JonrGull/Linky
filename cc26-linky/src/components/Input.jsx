@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "../Input.css";
-export default function Input({ postData, colorChoice, darkMode }) {
+export default function Input({ postData, colorChoice, darkMode, setUpdate, update}) {
   const linkRef = useRef(null);
   const descriptionRef = useRef(null);
   const tagsRef = useRef(null);
@@ -39,6 +39,7 @@ export default function Input({ postData, colorChoice, darkMode }) {
   function uploadedData() {
     let data = pushedButton();
     postData(data);
+    setUpdate(update + 1)
   }
 
   return (
