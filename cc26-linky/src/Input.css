@@ -1,6 +1,4 @@
-Input.css
-
-.input-container {
+Input.css .input-container {
   display: flex;
   flex-direction: column;
   width: auto;
@@ -36,6 +34,9 @@ Input.css
   background-color: #afc5ff;
   font-size: 20px;
 }
+.inputButton:hover {
+  background-color: #83a2fa;
+}
 
 .inputButton-dark {
   display: block;
@@ -47,7 +48,6 @@ Input.css
   color: white;
   font-size: 20px;
 }
-
 
 .input-box {
   padding: 20px 50px;

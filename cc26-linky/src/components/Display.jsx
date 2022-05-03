@@ -81,19 +81,24 @@ export default function Display({
                     }
               }
             >
-              <button className={darkMode ? "delete-post-dark" : "delete-post"}
-               id={item.id} onClick={deletePost} style={
-                darkMode
-                  ? {
-                      background: postColor
-                        ? postColor.target.style.background
-                        : "black",
-                    }
-                  : {
-                      background: postColor
-                        ? postColor.target.style.background
-                        : "white",
-                    }}>
+              <button
+                className={darkMode ? "delete-post-dark" : "delete-post"}
+                id={item.id}
+                onClick={deletePost}
+                style={
+                  darkMode
+                    ? {
+                        background: postColor
+                          ? postColor.target.style.background
+                          : "black",
+                      }
+                    : {
+                        background: postColor
+                          ? postColor.target.style.background
+                          : "white",
+                      }
+                }
+              >
                 X
               </button>
               <a href={itemUrl} target="_blank" rel="noreferrer">
@@ -108,7 +113,7 @@ export default function Display({
                   .map((val) => hashtags(val))
                   .map((val) => moreHashtags(val))}
               </p>
-              <DisplayGif hashtags={hashtags} />
+              <DisplayGif />
             </div>
           );
         })}

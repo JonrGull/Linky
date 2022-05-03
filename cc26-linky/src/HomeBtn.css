@@ -10,12 +10,12 @@
   padding: 10px 50px;
   border-radius: 8px;
   border: solid rgb(197, 197, 230);
-  background-color: #e01fb8;
+  background-color: #afc5ff;
   font-size: 2rem;
 }
 
 .home-btn:hover {
-  background-color: #94107a;
+  background-color: #83a2fa;
 }
 
 .home-btn-dark {
@@ -31,5 +31,3 @@
 .home-btn-dark:hover {
   background-color: #b3b1b3;
 }
-
-
