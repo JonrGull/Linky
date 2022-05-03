@@ -2,8 +2,6 @@ import React from "react";
 import DisplayGif from "./DisplayGif";
 import "../Display.css";
 export default function Display({ content }) {
-
-
   let clickTitles = [
     "Click the link!",
     "Click the link!",
@@ -35,11 +33,13 @@ export default function Display({ content }) {
               <p className="item-desc">{item.description}</p>
               <p className="item-desc">
                 Tags: {item.tags.map((val) => hashtags(val))}
+                {/* apply display gif to each  */}
+              <DisplayGif />
+                
               </p>
             </div>
           );
         })}
-        <DisplayGif  />
       </div>
     );
   } else {
