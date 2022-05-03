@@ -1,0 +1,18 @@
+.home-container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 7vh;
+}
+.home-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 50px;
+  border-radius: 8px;
+  border: solid rgb(197, 197, 230);
+  background-color: #e01fb8;
+  font-size: 2rem;
+}
+.home-btn:hover {
+  background-color: #94107a;
+}

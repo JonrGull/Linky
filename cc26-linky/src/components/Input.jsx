@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import "../Input.css";
-export default function Input({ postData }) {
+export default function Input({ postData, colorChoice }) {
   const linkRef = useRef(null);
   const descriptionRef = useRef(null);
   const tagsRef = useRef(null);
@@ -16,6 +16,14 @@ export default function Input({ postData }) {
     tagsRef.current.value = "";
     return result;
   };
+
+
+    const colors = ["#FA8072", "#FFD700", "#BDB76B", "#DDA0DD", "#90EE90", "#00FFFF"];
+    const children = colors.map((val, i) => {
+      return <div className="color" key={i} style={{background: val}} onClick={colorChoice}></div>
+      
+     })
+
 
   function uploadedData() {
     let data = pushedButton();
@@ -55,9 +63,12 @@ export default function Input({ postData }) {
           placeholder='separate with "," and no space'
         />
       </div>
+     <div className="colors" id="colors" >{children}</div>
       <button className="inputButton" onClick={uploadedData}>
         Post!
       </button>
     </div>
   );
 }
+
+

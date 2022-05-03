@@ -11,6 +11,8 @@ export default function App() {
   const [errorMessage, setErrorMessage] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [userData, setUserData] = useState([]);
+  const [postColor, setPostColor] = useState(null)
+
 
   const fetchdata = async () => {
     const response = await axios.get("https://cc26-linky.herokuapp.com/api");
@@ -29,15 +31,21 @@ export default function App() {
     fetchdata();
   };
 
+  const colorChoice = (color) => {
+    setPostColor(color)
+  }
+
+
   useEffect(() => {
     fetchdata();
   }, []);
 
   return (
     <div className="App">
-      <Navbar setData={setData} />
-      <Input postData={postData} />
-      <Display content={data} />
+      <Navbar setData={setData} fetchData={fetchdata}/>
+      <Input postData={postData} colorChoice={colorChoice} />
+      <Display content={data} postColor={postColor} setData={setData} />
+
     </div>
   );
 }

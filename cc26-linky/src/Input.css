@@ -1,3 +1,5 @@
+Input.css
+
 .input-container {
   display: flex;
   flex-direction: column;
@@ -30,4 +32,21 @@
   padding: 20px 50px;
   border: solid rgb(197, 197, 230);
   border-radius: 15px;
+}
+
+.colors {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+.color {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: 0.5vh;
+  margin-right: 0.5vh;
+  margin-bottom: 2vh;
 }
