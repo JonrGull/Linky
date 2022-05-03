@@ -20,9 +20,16 @@ export default function Display({ content, setData, postColor, darkMode }) {
   async function requestTag(val) {
     let tag = val.toLowerCase().slice(1);
     const results = await axios.get(
-      "https://cc26-linky.herokuapp.com/tags/" + tag
+      '/tags/' + tag
     );
     setData(results.data);
+  }
+
+console.log("content ********", content)
+
+  async function deletePost(post){
+    console.log("************", post.target.id)
+     await axios.delete(`/del/${Number(post.target.id)}`)
   }
 
   function hashtags(val) {
@@ -54,6 +61,7 @@ export default function Display({ content, setData, postColor, darkMode }) {
         {content.map((item, index) => {
           console.log("~ item", item);
           const itemUrl = item.link;
+          console.log(item.id)
           return (
             <div
               className={darkMode ? "item-container-dark" : "item-container"}

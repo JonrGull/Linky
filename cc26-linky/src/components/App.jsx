@@ -16,7 +16,7 @@ export default function App() {
 
 
   const fetchdata = async () => {
-    const response = await axios.get("https://cc26-linky.herokuapp.com/api");
+    const response = await axios.get("/api");
     const info = response.data;
     setData(info);
   };
@@ -28,7 +28,7 @@ export default function App() {
   }
 
   const postData = async (data) => {
-    await axios.post("https://cc26-linky.herokuapp.com/newpost", data);
+    await axios.post("/newpost", data);
     fetchdata();
   };
 
