@@ -24,6 +24,7 @@ export default function Display({ content }) {
       <div className="display-container">
         <p className="displayMessage">Find your favourites</p>
         {content.map((item, index) => {
+          console.log("~ item", item);
           const itemUrl = item.link;
           return (
             <div className="item-container" key={index}>
@@ -34,10 +35,10 @@ export default function Display({ content }) {
               <p className="item-desc">
                 Tags: {item.tags.map((val) => hashtags(val))}
               </p>
-                <DisplayGif hashtags={hashtags} />
             </div>
           );
         })}
+        <DisplayGif hashtags={hashtags} />
       </div>
     );
   } else {

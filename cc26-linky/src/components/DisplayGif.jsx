@@ -2,8 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { GiphyFetch } from "@giphy/js-fetch-api";
 
-// import axios from "axios";
-
 export default function DisplayGif() {
   const [gif, setGif] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,7 +14,6 @@ export default function DisplayGif() {
         const response = await gf.random({ rating: "g" });
         const gifArray = response.data;
         setGif([...gif, gifArray]);
-        setLoading(false);
         console.log(`random`, response);
       } catch (error) {
         console.error(`random`, error);
