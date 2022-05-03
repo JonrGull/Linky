@@ -6,10 +6,8 @@ import axios from "axios";
 import "../App.css";
 import { useEffect, useState } from "react";
 
-
 export default function App() {
   const [data, setData] = useState(null);
-
 
   const fetchData = async () => {
     const response = await axios.get("https://cc26-linky.herokuapp.com/api");
@@ -21,8 +19,6 @@ export default function App() {
     await axios.post("https://cc26-linky.herokuapp.com/newpost", data);
     fetchData();
   };
-
-
 
   useEffect(() => {
     fetchData();
