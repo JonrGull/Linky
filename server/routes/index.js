@@ -52,11 +52,12 @@ router.post('/newpost', async (req, res) => {
 
 router.delete('/del/:input', async (req, res) => {
   const input = parseInt(req.params.input);
-  const posts = await knex.select('id').from('posts');
-  result = posts.filter(({ id }) => id !== input)
-  // const output = posts.filter((el) => el.id === input);
 
-  res.status(200).send(result);
+  await knex('posts').where({ id: input }).del();
+
+  const posts = await knex.select('id').from('posts');
+
+  res.status(200).send(posts);
 });
 
 module.exports = router;
