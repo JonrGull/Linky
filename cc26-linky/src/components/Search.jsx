@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useRef } from "react";
 
-export default function Search({ setData }) {
+export default function Search({ setData, darkMode }) {
   const searchRef = useRef(null);
 
   const requestTag = async () => {
@@ -14,7 +14,7 @@ export default function Search({ setData }) {
   };
 
   return (
-    <div className="search">
+    <div className={darkMode ? "search-dark": "search"}>
       <label>Tag Search</label>
       <input
         type="text"

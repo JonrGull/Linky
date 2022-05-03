@@ -12,6 +12,7 @@ export default function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [userData, setUserData] = useState([]);
   const [postColor, setPostColor] = useState(null)
+  const [darkMode, setDarkMode] = useState(false)
 
 
   const fetchdata = async () => {
@@ -41,10 +42,10 @@ export default function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Navbar setData={setData} fetchData={fetchdata}/>
-      <Input postData={postData} colorChoice={colorChoice} />
-      <Display content={data} postColor={postColor} setData={setData} />
+    <div className={darkMode ? "App-dark" : "App"}>
+      <Navbar setData={setData} fetchData={fetchdata} setDarkMode={setDarkMode} darkMode={darkMode}/>
+      <Input postData={postData} colorChoice={colorChoice} darkMode={darkMode} />
+      <Display content={data} postColor={postColor} setData={setData} darkMode={darkMode} />
 
     </div>
   );
