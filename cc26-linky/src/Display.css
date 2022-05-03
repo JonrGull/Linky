@@ -19,7 +19,7 @@
 
 .displayMessage {
   font-weight: bolder;
-  color: rgb(0, 255, 38);
+  color: rgb(89, 177, 177);
   font-size: 1.5em;
 }
 
@@ -62,16 +62,20 @@
   font-size: 1.1em;
 }
 
-.delete-post{
+.delete-post {
   margin-top: -10px;
   border: none;
   color: black;
   float: right;
 }
 
-.delete-post-dark{
+.delete-post-dark {
   margin-top: -10px;
   border: none;
   color: white;
   float: right;
+}
+
+.gif-container {
+  padding-bottom: 1vh;
 }
