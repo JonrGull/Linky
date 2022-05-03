@@ -54,9 +54,13 @@ Input.css .input-container {
 }
 
 .input-box {
-  padding: 20px 50px;
+  padding: 2vh 2vw;
+  height: 8vh;
+  width: 18vw;
   border: solid rgb(197, 197, 230);
-  border-radius: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  white-space: warp;
 }
 
 .inputLabel-dark {

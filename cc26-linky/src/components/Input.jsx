@@ -73,7 +73,7 @@ export default function Input({ postData, colorChoice, darkMode, setUpdate, upda
           className="input-box"
           type="text"
           ref={tagsRef}
-          placeholder='separate with "," and no space'
+          placeholder='Separate with "," and no space'
         />
       </div>
       <div className="colors" id="colors">
