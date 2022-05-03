@@ -59,9 +59,8 @@ console.log("content ********", content)
           Find your favourites
         </p>
         {content.map((item, index) => {
-          console.log("~ item", item);
+          <button className='delete-post' id={item.id} onClick={deletePost}>X</button>
           const itemUrl = item.link;
-          console.log(item.id)
           return (
             <div
               className={darkMode ? "item-container-dark" : "item-container"}
