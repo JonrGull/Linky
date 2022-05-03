@@ -19,14 +19,12 @@ export default function Display({ content, setData, postColor, darkMode }) {
 
   async function requestTag(val) {
     let tag = val.toLowerCase().slice(1);
-    const results = await axios.get(
-      '/tags/' + tag
-    );
+    const results = await axios.get("/tags/" + tag);
     setData(results.data);
   }
 
-  async function deletePost(post){
-     await axios.delete(`/del/${Number(post.target.id)}`)
+  async function deletePost(post) {
+    await axios.delete(`/del/${Number(post.target.id)}`);
   }
 
   function hashtags(val) {
@@ -59,8 +57,8 @@ export default function Display({ content, setData, postColor, darkMode }) {
           const itemUrl = item.link;
           return (
             <div
-            className={darkMode ? "item-container-dark" : "item-container"}
-            key={index}
+              className={darkMode ? "item-container-dark" : "item-container"}
+              key={index}
               style={
                 darkMode
                   ? {
@@ -75,7 +73,9 @@ export default function Display({ content, setData, postColor, darkMode }) {
                     }
               }
             >
-            <button className='delete-post' id={item.id} onClick={deletePost}>X</button>
+              <button className="delete-post" id={item.id} onClick={deletePost}>
+                X
+              </button>
               <a href={itemUrl} target="_blank" rel="noreferrer">
                 {clickTitles[Math.floor(Math.random() * 10)]}
               </a>

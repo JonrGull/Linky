@@ -4,7 +4,6 @@ import { GiphyFetch } from "@giphy/js-fetch-api";
 
 export default function DisplayGif() {
   const [gif, setGif] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const gf = new GiphyFetch(process.env.REACT_APP_GIPHY_KEY);
 

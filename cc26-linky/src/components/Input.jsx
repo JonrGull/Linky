@@ -17,13 +17,24 @@ export default function Input({ postData, colorChoice, darkMode }) {
     return result;
   };
 
-
-    const colors = ["#FA8072", "#FFD700", "#BDB76B", "#DDA0DD", "#90EE90", "#00FFFF"];
-    const children = colors.map((val, i) => {
-      return <div className="color" key={i} style={{background: val}} onClick={colorChoice}></div>
-      
-     })
-
+  const colors = [
+    "#FA8072",
+    "#FFD700",
+    "#BDB76B",
+    "#DDA0DD",
+    "#90EE90",
+    "#00FFFF",
+  ];
+  const children = colors.map((val, i) => {
+    return (
+      <div
+        className="color"
+        key={i}
+        style={{ background: val }}
+        onClick={colorChoice}
+      ></div>
+    );
+  });
 
   function uploadedData() {
     let data = pushedButton();
@@ -32,10 +43,11 @@ export default function Input({ postData, colorChoice, darkMode }) {
 
   return (
     <div className={darkMode ? "input-container-dark" : "input-container"}>
-      <p className={darkMode ? "inputMessage-dark" : "inputMessage"}>Post your recommendation!</p>
+      <p className={darkMode ? "inputMessage-dark" : "inputMessage"}>
+        Post your recommendation!
+      </p>
       <div className="inputLink-box">
-        {" "}
-        <div className={darkMode ? "inputLabel-dark" : "inputLabel"}> Link </div>
+        <div className={darkMode ? "inputLabel-dark" : "inputLabel"}>Link</div>
         <input
           type="text"
           className="input-box"
@@ -44,8 +56,9 @@ export default function Input({ postData, colorChoice, darkMode }) {
         />
       </div>
       <div className="inputDesc-box">
-        {" "}
-        <div className={darkMode ? "inputLabel-dark" : "inputLabel"}> Description: </div>
+        <div className={darkMode ? "inputLabel-dark" : "inputLabel"}>
+          Description:
+        </div>
         <input
           type="text"
           className="input-box"
@@ -54,8 +67,7 @@ export default function Input({ postData, colorChoice, darkMode }) {
         />
       </div>
       <div className="inputTag-box">
-        {" "}
-        <div className={darkMode ? "inputLabel-dark" : "inputLabel"}> Tags </div>
+        <div className={darkMode ? "inputLabel-dark" : "inputLabel"}>Tags</div>
         <input
           className="input-box"
           type="text"
@@ -63,12 +75,15 @@ export default function Input({ postData, colorChoice, darkMode }) {
           placeholder='separate with "," and no space'
         />
       </div>
-     <div className="colors" id="colors" >{children}</div>
-      <button className={darkMode ? "inputButton-dark" : "inputButton"} onClick={uploadedData}>
+      <div className="colors" id="colors">
+        {children}
+      </div>
+      <button
+        className={darkMode ? "inputButton-dark" : "inputButton"}
+        onClick={uploadedData}
+      >
         Post!
       </button>
     </div>
   );
 }
-
-
