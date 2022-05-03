@@ -63,8 +63,13 @@ Input.css .input-container {
   white-space: warp;
 }
 
+.inputLabel {
+  padding-top: 1vh;
+}
+
 .inputLabel-dark {
   color: white;
+  padding-top: 1vh;
 }
 
 .colors {

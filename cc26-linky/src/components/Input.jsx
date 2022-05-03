@@ -1,6 +1,12 @@
 import React, { useRef } from "react";
 import "../Input.css";
-export default function Input({ postData, colorChoice, darkMode, setUpdate, update}) {
+export default function Input({
+  postData,
+  colorChoice,
+  darkMode,
+  setUpdate,
+  update,
+}) {
   const linkRef = useRef(null);
   const descriptionRef = useRef(null);
   const tagsRef = useRef(null);
@@ -39,7 +45,7 @@ export default function Input({ postData, colorChoice, darkMode, setUpdate, upda
   function uploadedData() {
     let data = pushedButton();
     postData(data);
-    setUpdate(update + 1)
+    setUpdate(update + 1);
   }
 
   return (
@@ -48,7 +54,7 @@ export default function Input({ postData, colorChoice, darkMode, setUpdate, upda
         Post your recommendation!
       </p>
       <div className="inputLink-box">
-        <div className={darkMode ? "inputLabel-dark" : "inputLabel"}>Link</div>
+        <div className={darkMode ? "inputLabel-dark" : "inputLabel"}>Link:</div>
         <input
           type="text"
           className="input-box"
@@ -68,7 +74,7 @@ export default function Input({ postData, colorChoice, darkMode, setUpdate, upda
         />
       </div>
       <div className="inputTag-box">
-        <div className={darkMode ? "inputLabel-dark" : "inputLabel"}>Tags</div>
+        <div className={darkMode ? "inputLabel-dark" : "inputLabel"}>Tags:</div>
         <input
           className="input-box"
           type="text"
