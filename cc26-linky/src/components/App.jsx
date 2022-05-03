@@ -8,44 +8,56 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   const [data, setData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [userData, setUserData] = useState([]);
-  const [postColor, setPostColor] = useState(null)
+  const [postColor, setPostColor] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
+  const [update, setUpdate] = useState(0);
 
-
-  const fetchdata = async () => {
-    const response = await axios.get("https://cc26-linky.herokuapp.com/api");
+  const fetchData = async () => {
+    const response = await axios.get("/api");
     const info = response.data;
     setData(info);
   };
 
-  const fetchUser = async () => {
-    const response = await axios.get("/user");
-    const userInfo = response.data;
-    setUserData(userInfo);
-  }
-
   const postData = async (data) => {
-    await axios.post("https://cc26-linky.herokuapp.com/newpost", data);
-    fetchdata();
+    await axios.post("/newpost", data);
+    fetchData();
   };
 
   const colorChoice = (color) => {
-    setPostColor(color)
-  }
-
+    setPostColor(color);
+  };
 
   useEffect(() => {
-    fetchdata();
+    fetchData();
   }, []);
 
-  return (
-    <div className="App">
-      <Navbar setData={setData} fetchData={fetchdata}/>
-      <Input postData={postData} colorChoice={colorChoice} />
-      <Display content={data} postColor={postColor} setData={setData} />
+  useEffect(() => {
+    fetchData();
+  }, [update]);
 
+  return (
+    <div className={darkMode ? "App-dark" : "App"}>
+      <Navbar
+        setData={setData}
+        fetchData={fetchData}
+        setDarkMode={setDarkMode}
+        darkMode={darkMode}
+      />
+      <Input
+        postData={postData}
+        colorChoice={colorChoice}
+        darkMode={darkMode}
+        setUpdate={setUpdate}
+        update={update}
+      />
+      <Display
+        content={data}
+        postColor={postColor}
+        setData={setData}
+        darkMode={darkMode}
+        setUpdate={setUpdate}
+        update={update}
+      />
     </div>
   );
 }

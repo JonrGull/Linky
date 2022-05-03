@@ -13,6 +13,23 @@
   background-color: #e01fb8;
   font-size: 2rem;
 }
+
 .home-btn:hover {
   background-color: #94107a;
 }
+
+.home-btn-dark {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 50px;
+  border-radius: 8px;
+  border: solid rgb(197, 197, 230);
+  background-color: #4f4e4f;
+  font-size: 2rem;
+}
+
+.home-btn-dark:hover {
+  background-color: #b3b1b3;
+}
+
+

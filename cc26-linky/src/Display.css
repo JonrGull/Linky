@@ -3,12 +3,18 @@
   border-width: 2px;
   border-radius: 5px;
   border-color: slateblue;
-  width: 95%;
-  height: 50%;
-  margin-left: 3vw;
-  margin-top: 1vw;
+  width: 100%;
   margin-bottom: 1vw;
   overflow: auto;
+}
+
+.display-container-dark {
+  display: grid;
+  width: 100%;
+  margin-bottom: 1vw;
+  overflow: auto;
+  color: white;
+  background-color: rgb(53, 52, 52);
 }
 
 .displayMessage {
@@ -17,11 +23,28 @@
   font-size: 1.5em;
 }
 
+.displayMessage-dark {
+  font-weight: bolder;
+  color: rgba(0, 255, 38, 0.416);
+  font-size: 1.5em;
+}
+
 .item-container {
   margin: auto;
   background-color: white;
   width: 80%;
-  height: 100px;
+  border-radius: 5px;
+  border-width: 2px;
+  padding-top: 10px;
+  margin-top: 10px;
+  border-color: gray;
+}
+
+.item-container-dark {
+  margin: auto;
+  background-color: black;
+  color: white;
+  width: 80%;
   border-radius: 5px;
   border-width: 2px;
   padding-top: 10px;
@@ -30,6 +53,11 @@
 }
 
 .item-desc {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.item-desc-dark {
   font-weight: bold;
   font-size: 1.1em;
 }

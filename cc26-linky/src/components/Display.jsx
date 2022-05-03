@@ -1,27 +1,38 @@
-import React from 'react';
-import '../Display.css';
-import axios from 'axios';
-export default function Display({ content, setData, postColor }) {
-  
+import React from "react";
+import "../Display.css";
+import axios from "axios";
+import DisplayGif from "./DisplayGif";
+
+export default function Display({
+  content,
+  setData,
+  postColor,
+  darkMode,
+  setUpdate,
+  update,
+}) {
   let clickTitles = [
-    'Click the link!',
-    'Click the link!',
-    'Click the link!',
-    'Click the link!',
-    'Click the link!',
-    'Click the link!',
-    'Click the link!',
-    'Lick the link!',
-    'Lick the link!',
+    "Click the link!",
+    "Click the link!",
+    "Click the link!",
+    "Click the link!",
+    "Click the link!",
+    "Click the link!",
+    "Click the link!",
+    "Lick the link!",
+    "Lick the link!",
     "Don't lick the link!!",
   ];
 
   async function requestTag(val) {
     let tag = val.toLowerCase().slice(1);
-    const results = await axios.get(
-      'https://cc26-linky.herokuapp.com/tags/' + tag
-    );
+    const results = await axios.get("/tags/" + tag);
     setData(results.data);
+  }
+
+  async function deletePost(post) {
+    await axios.delete(`/del/${Number(post.target.id)}`);
+    setUpdate(update + 1);
   }
 
   function hashtags(val) {
@@ -44,25 +55,48 @@ export default function Display({ content, setData, postColor }) {
 
   if (content !== null) {
     return (
-      <div className="display-container" >
-        <p className="displayMessage">Find your favourites</p>
+      <div
+        className={darkMode ? "display-container-dark" : "display-container"}
+      >
+        <p className={darkMode ? "displayMessage-dark" : "displayMessage"}>
+          Find your favourites
+        </p>
         {content.map((item, index) => {
           const itemUrl = item.link;
           return (
-            <div className="item-container" key={index} style={{background: postColor ? postColor.target.style.background : 'white'}}>
-              <a href={itemUrl} target="_blank">
+            <div
+              className={darkMode ? "item-container-dark" : "item-container"}
+              key={index}
+              style={
+                darkMode
+                  ? {
+                      background: postColor
+                        ? postColor.target.style.background
+                        : "black",
+                    }
+                  : {
+                      background: postColor
+                        ? postColor.target.style.background
+                        : "white",
+                    }
+              }
+            >
+              <button className="delete-post" id={item.id} onClick={deletePost}>
+                X
+              </button>
+              <a href={itemUrl} target="_blank" rel="noreferrer">
                 {clickTitles[Math.floor(Math.random() * 10)]}
               </a>
-              <p className="item-desc">Description: {item.description}</p>
-              <p className="item-desc">
-                Tags:
-                {
-                  item.tags
-                    .map((val) => hashtags(val))
-                    .map((val) => moreHashtags(val))
-                }
+              <p className={darkMode ? "item-desc-dark" : "item-desc"}>
+                Description: {item.description}
               </p>
-
+              <p className={darkMode ? "item-desc-dark" : "item-desc"}>
+                Tags:
+                {item.tags
+                  .map((val) => hashtags(val))
+                  .map((val) => moreHashtags(val))}
+              </p>
+              <DisplayGif hashtags={hashtags} />
             </div>
           );
         })}
