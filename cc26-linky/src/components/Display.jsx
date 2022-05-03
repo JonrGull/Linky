@@ -3,7 +3,7 @@ import "../Display.css";
 import axios from "axios";
 import DisplayGif from "./DisplayGif";
 
-export default function Display({ content, setData, postColor, darkMode }) {
+export default function Display({ content, setData, postColor, darkMode, setUpdate, update }) {
   let clickTitles = [
     "Click the link!",
     "Click the link!",
@@ -27,6 +27,7 @@ export default function Display({ content, setData, postColor, darkMode }) {
 
   async function deletePost(post){
      await axios.delete(`/del/${Number(post.target.id)}`)
+     setUpdate(update + 1)
   }
 
   function hashtags(val) {
