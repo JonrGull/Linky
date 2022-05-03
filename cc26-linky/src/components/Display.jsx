@@ -24,10 +24,11 @@ export default function Display({ content, setData, postColor }) {
     setData(results.data);
   }
 
+console.log("content ********", content)
 
-  async function deletePost(index){
-    console.log("************", Number(index.target.id) + 1)
-     await axios.delete(`/api/${Number(index.target.id) + 1}`)
+  async function deletePost(post){
+    console.log("************", post.target.id)
+     await axios.delete(`/del/${Number(post.target.id)}`)
   }
 
   function hashtags(val) {
@@ -54,9 +55,10 @@ export default function Display({ content, setData, postColor }) {
         <p className="displayMessage">Find your favourites</p>
         {content.map((item, index) => {
           const itemUrl = item.link;
+          console.log(item.id)
           return (
             <div className="item-container" key={index} style={{background: postColor ? postColor.target.style.background : 'white'}}>
-              <button className='delete-post' id={index} onClick={deletePost}>X</button>
+              <button className='delete-post' id={item.id} onClick={deletePost}>X</button>
               <a href={itemUrl} target="_blank">
                 {clickTitles[Math.floor(Math.random() * 10)]}
               </a>
