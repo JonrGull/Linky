@@ -1,17 +1,19 @@
 import React from "react";
 import Search from "./Search";
 import HomeBtn from "./HomeBtn";
+import DarkMode from "./DarkMode";
 import linkylogoonobg from "../images/linkyLogoonobg.png";
 import "../Navbar.css";
 
-export default function Navbar({ setData, fetchData }) {
+export default function Navbar({ setData, fetchData, setDarkMode, darkMode }) {
   return (
-    <div className="nav">
+    <div className={ darkMode ? "nav-dark" : "nav"}>
       <div className="logo">
         <img src={linkylogoonobg} alt="LINKY" />
       </div>
-      <HomeBtn fetchData={fetchData} />
-      <Search setData={setData} />
+      <DarkMode setDarkMode={setDarkMode} darkMode={darkMode} />
+      <HomeBtn fetchData={fetchData} darkMode={darkMode} />
+      <Search setData={setData} darkMode={darkMode} />
     </div>
   );
 }
