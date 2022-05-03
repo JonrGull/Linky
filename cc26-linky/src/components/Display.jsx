@@ -24,6 +24,12 @@ export default function Display({ content, setData, postColor }) {
     setData(results.data);
   }
 
+
+  async function deletePost(index){
+    console.log("************", Number(index.target.id) + 1)
+     await axios.delete(`/api/${Number(index.target.id) + 1}`)
+  }
+
   function hashtags(val) {
     return `#${val} `;
   }
@@ -50,6 +56,7 @@ export default function Display({ content, setData, postColor }) {
           const itemUrl = item.link;
           return (
             <div className="item-container" key={index} style={{background: postColor ? postColor.target.style.background : 'white'}}>
+              <button className='delete-post' id={index} onClick={deletePost}>X</button>
               <a href={itemUrl} target="_blank">
                 {clickTitles[Math.floor(Math.random() * 10)]}
               </a>
