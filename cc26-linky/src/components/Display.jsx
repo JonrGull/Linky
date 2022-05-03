@@ -58,11 +58,19 @@ export default function Display({ content, setData, postColor, darkMode }) {
             <div
               className={darkMode ? "item-container-dark" : "item-container"}
               key={index}
-              style={{
-                background: postColor
-                  ? postColor.target.style.background
-                  : "white",
-              }}
+              style={
+                darkMode
+                  ? {
+                      background: postColor
+                        ? postColor.target.style.background
+                        : "black",
+                    }
+                  : {
+                      background: postColor
+                        ? postColor.target.style.background
+                        : "white",
+                    }
+              }
             >
               <a href={itemUrl} target="_blank" rel="noreferrer">
                 {clickTitles[Math.floor(Math.random() * 10)]}
