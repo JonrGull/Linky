@@ -8,7 +8,14 @@ const darkToggle = () => {
 }
 return (
     <div className='dark-container'>
-        <button className='dark-btn' onClick={darkToggle}>🌙</button>
+        <button className='dark-btn' onClick={darkToggle} style={
+                darkMode
+                  ? {
+                      background: "black",
+                    }
+                  : {
+                      background: "yellow",
+                    }}>{darkMode ? "🌙" : "🌞"}</button>
     </div>
 )
 }
