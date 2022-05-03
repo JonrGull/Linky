@@ -49,7 +49,7 @@ export default function Display({ content, setData, postColor, darkMode }) {
         {content.map((item, index) => {
           const itemUrl = item.link;
           return (
-            <div className={darkMode ? "item-container-dark" : "item-container"} key={index} style={{background: postColor ? postColor.target.style.background : 'white'}}>
+            <div className={darkMode ? "item-container-dark" : "item-container"} key={index} style={darkMode ? {background: postColor ? postColor.target.style.background : 'black'} : {background: postColor ? postColor.target.style.background : 'white'}}>
               <a href={itemUrl} target="_blank">
                 {clickTitles[Math.floor(Math.random() * 10)]}
               </a>
