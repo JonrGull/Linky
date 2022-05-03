@@ -14,7 +14,6 @@ export default function DisplayGif() {
         const response = await gf.random({ rating: "g" });
         const gifArray = response.data;
         setGif([...gif, gifArray]);
-        console.log(`random`, response);
       } catch (error) {
         console.error(`random`, error);
       }
