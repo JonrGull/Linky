@@ -25,10 +25,7 @@ export default function Display({ content, setData, postColor, darkMode }) {
     setData(results.data);
   }
 
-console.log("content ********", content)
-
   async function deletePost(post){
-    console.log("************", post.target.id)
      await axios.delete(`/del/${Number(post.target.id)}`)
   }
 
@@ -59,12 +56,11 @@ console.log("content ********", content)
           Find your favourites
         </p>
         {content.map((item, index) => {
-          <button className='delete-post' id={item.id} onClick={deletePost}>X</button>
           const itemUrl = item.link;
           return (
             <div
-              className={darkMode ? "item-container-dark" : "item-container"}
-              key={index}
+            className={darkMode ? "item-container-dark" : "item-container"}
+            key={index}
               style={
                 darkMode
                   ? {
@@ -79,6 +75,7 @@ console.log("content ********", content)
                     }
               }
             >
+            <button className='delete-post' id={item.id} onClick={deletePost}>X</button>
               <a href={itemUrl} target="_blank" rel="noreferrer">
                 {clickTitles[Math.floor(Math.random() * 10)]}
               </a>
