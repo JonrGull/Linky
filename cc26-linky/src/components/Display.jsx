@@ -81,7 +81,19 @@ export default function Display({
                     }
               }
             >
-              <button className="delete-post" id={item.id} onClick={deletePost}>
+              <button className={darkMode ? "delete-post-dark" : "delete-post"}
+               id={item.id} onClick={deletePost} style={
+                darkMode
+                  ? {
+                      background: postColor
+                        ? postColor.target.style.background
+                        : "black",
+                    }
+                  : {
+                      background: postColor
+                        ? postColor.target.style.background
+                        : "white",
+                    }}>
                 X
               </button>
               <a href={itemUrl} target="_blank" rel="noreferrer">
