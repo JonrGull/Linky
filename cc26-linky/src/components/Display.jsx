@@ -19,7 +19,7 @@ export default function Display({ content, setData, postColor }) {
   async function requestTag(val) {
     let tag = val.toLowerCase().slice(1);
     const results = await axios.get(
-      'https://cc26-linky.herokuapp.com/tags/' + tag
+      '/tags/' + tag
     );
     setData(results.data);
   }
