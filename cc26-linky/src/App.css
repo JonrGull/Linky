@@ -8,3 +8,10 @@
   padding-bottom: 20px;
   width: 100%;
 }
+
+.App-dark{
+  text-align: center;
+  background: rgb(53, 52, 52);
+  padding-bottom: 20px;
+  width: 100%;
+}
