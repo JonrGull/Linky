@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Display.css';
 import axios from 'axios';
-export default function Display({ content, setData, postColor }) {
+export default function Display({ content, setData, postColor, darkMode }) {
   
   let clickTitles = [
     'Click the link!',
@@ -44,17 +44,17 @@ export default function Display({ content, setData, postColor }) {
 
   if (content !== null) {
     return (
-      <div className="display-container" >
-        <p className="displayMessage">Find your favourites</p>
+      <div className={darkMode ? "display-container-dark" : "display-container"} >
+        <p className={darkMode ? "displayMessage-dark" : "displayMessage"}>Find your favourites</p>
         {content.map((item, index) => {
           const itemUrl = item.link;
           return (
-            <div className="item-container" key={index} style={{background: postColor ? postColor.target.style.background : 'white'}}>
+            <div className={darkMode ? "item-container-dark" : "item-container"} key={index} style={{background: postColor ? postColor.target.style.background : 'white'}}>
               <a href={itemUrl} target="_blank">
                 {clickTitles[Math.floor(Math.random() * 10)]}
               </a>
-              <p className="item-desc">Description: {item.description}</p>
-              <p className="item-desc">
+              <p className={darkMode ? "item-desc-dark" : "item-desc"}>Description: {item.description}</p>
+              <p className={darkMode ? "item-desc-dark" : "item-desc"}>
                 Tags:
                 {
                   item.tags

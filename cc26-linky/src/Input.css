@@ -5,10 +5,25 @@ Input.css
   flex-direction: column;
   width: auto;
 }
+
+.input-container-dark {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  background-color: rgb(53, 52, 52);
+  color: white;
+}
 .inputMessage {
   margin-top: 25px;
   font-weight: bolder;
   font: navy;
+  font-size: 1.5em;
+}
+
+.inputMessage-dark {
+  margin-top: 25px;
+  font-weight: bolder;
+  color: white;
   font-size: 1.5em;
 }
 
@@ -22,16 +37,26 @@ Input.css
   font-size: 20px;
 }
 
-.inputLink-box,
-.inputDesc-box,
-.inputTag-box {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.inputButton-dark {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 50px;
+  border-radius: 8px;
+  border: solid rgb(197, 197, 230);
+  background-color: black;
+  color: white;
+  font-size: 20px;
 }
+
+
 .input-box {
   padding: 20px 50px;
   border: solid rgb(197, 197, 230);
   border-radius: 15px;
+}
+
+.inputLabel-dark {
+  color: white;
 }
 
 .colors {

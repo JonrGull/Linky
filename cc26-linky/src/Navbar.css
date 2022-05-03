@@ -10,7 +10,25 @@ label {
   font-size: 20px;
 }
 
+.nav-dark {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: linear-gradient(to top, #030303 0%, #1b1b1b 100%);
+  font-size: 20px;
+}
+
 .nav .logo img {
+  display: flex;
+  flex: 0.2;
+  width: 150px;
+  height: 150px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.nav-dark .logo img {
   display: flex;
   flex: 0.2;
   width: 150px;
@@ -30,6 +48,19 @@ label {
   margin-top: auto;
   margin-bottom: auto;
   font-size: 20px;
+}
+
+.search-dark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bolder;
+  margin-left: auto;
+  margin-right: 2em;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 20px;
+  color: white;
 }
 
 .searchGo {
