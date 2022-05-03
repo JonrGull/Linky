@@ -8,45 +8,47 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   const [data, setData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [userData, setUserData] = useState([]);
-  const [postColor, setPostColor] = useState(null)
-  const [darkMode, setDarkMode] = useState(false)
+  const [postColor, setPostColor] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
 
-
-  const fetchdata = async () => {
+  const fetchData = async () => {
     const response = await axios.get("/api");
     const info = response.data;
     setData(info);
   };
 
-  const fetchUser = async () => {
-    const response = await axios.get("/user");
-    const userInfo = response.data;
-    setUserData(userInfo);
-  }
-
   const postData = async (data) => {
     await axios.post("/newpost", data);
-    fetchdata();
+    fetchData();
   };
 
   const colorChoice = (color) => {
-    setPostColor(color)
-  }
-
+    setPostColor(color);
+  };
 
   useEffect(() => {
-    fetchdata();
+    fetchData();
   }, []);
 
   return (
     <div className={darkMode ? "App-dark" : "App"}>
-      <Navbar setData={setData} fetchData={fetchdata} setDarkMode={setDarkMode} darkMode={darkMode}/>
-      <Input postData={postData} colorChoice={colorChoice} darkMode={darkMode} />
-      <Display content={data} postColor={postColor} setData={setData} darkMode={darkMode} />
-
+      <Navbar
+        setData={setData}
+        fetchData={fetchData}
+        setDarkMode={setDarkMode}
+        darkMode={darkMode}
+      />
+      <Input
+        postData={postData}
+        colorChoice={colorChoice}
+        darkMode={darkMode}
+      />
+      <Display
+        content={data}
+        postColor={postColor}
+        setData={setData}
+        darkMode={darkMode}
+      />
     </div>
   );
 }
