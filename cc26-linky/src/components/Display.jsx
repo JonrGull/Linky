@@ -1,10 +1,9 @@
-import React from 'react';
-import '../Display.css';
-import axios from 'axios';
-export default function Display({ content, setData, postColor, darkMode }) {
+import React from "react";
+import "../Display.css";
+import axios from "axios";
 import DisplayGif from "./DisplayGif";
-export default function Display({ content }) {
 
+export default function Display({ content, setData, postColor, darkMode }) {
   let clickTitles = [
     "Click the link!",
     "Click the link!",
@@ -18,11 +17,10 @@ export default function Display({ content }) {
     "Don't lick the link!!",
   ];
 
-
   async function requestTag(val) {
     let tag = val.toLowerCase().slice(1);
     const results = await axios.get(
-      'https://cc26-linky.herokuapp.com/tags/' + tag
+      "https://cc26-linky.herokuapp.com/tags/" + tag
     );
     setData(results.data);
   }
@@ -43,34 +41,53 @@ export default function Display({ content }) {
         {val}
       </a>
     );
-
   }
 
   if (content !== null) {
     return (
-      <div className={darkMode ? "display-container-dark" : "display-container"} >
-        <p className={darkMode ? "displayMessage-dark" : "displayMessage"}>Find your favourites</p>
+      <div
+        className={darkMode ? "display-container-dark" : "display-container"}
+      >
+        <p className={darkMode ? "displayMessage-dark" : "displayMessage"}>
+          Find your favourites
+        </p>
         {content.map((item, index) => {
           console.log("~ item", item);
           const itemUrl = item.link;
           return (
-            <div className={darkMode ? "item-container-dark" : "item-container"} key={index} style={darkMode ? {background: postColor ? postColor.target.style.background : 'black'} : {background: postColor ? postColor.target.style.background : 'white'}}>
-              <a href={itemUrl} target="_blank">
+            <div
+              className={darkMode ? "item-container-dark" : "item-container"}
+              key={index}
+              style={
+                darkMode
+                  ? {
+                      background: postColor
+                        ? postColor.target.style.background
+                        : "black",
+                    }
+                  : {
+                      background: postColor
+                        ? postColor.target.style.background
+                        : "white",
+                    }
+              }
+            >
+              <a href={itemUrl} target="_blank" rel="noreferrer">
                 {clickTitles[Math.floor(Math.random() * 10)]}
               </a>
-              <p className={darkMode ? "item-desc-dark" : "item-desc"}>Description: {item.description}</p>
+              <p className={darkMode ? "item-desc-dark" : "item-desc"}>
+                Description: {item.description}
+              </p>
               <p className={darkMode ? "item-desc-dark" : "item-desc"}>
                 Tags:
-                {
-                  item.tags
-                    .map((val) => hashtags(val))
-                    .map((val) => moreHashtags(val))
-                }
+                {item.tags
+                  .map((val) => hashtags(val))
+                  .map((val) => moreHashtags(val))}
               </p>
+              <DisplayGif hashtags={hashtags} />
             </div>
           );
         })}
-        <DisplayGif hashtags={hashtags} />
       </div>
     );
   } else {
