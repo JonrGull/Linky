@@ -2,8 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { GiphyFetch } from "@giphy/js-fetch-api";
 
-export default function DisplayGif( ) {
-
+export default function DisplayGif() {
   const [gif, setGif] = useState([]);
 
   //   useEffect(() => {
@@ -26,9 +25,9 @@ export default function DisplayGif( ) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await gf.search("cat", { limit: 1 });
+        const response = await gf.random();
         const gifArray = response.data;
-        setGif(gifArray);
+        setGif([...gif, gifArray]);
         console.log(`random`, response);
       } catch (error) {
         console.error(`random`, error);
@@ -37,7 +36,6 @@ export default function DisplayGif( ) {
 
     fetchData();
   }, []);
-
   const renderGifs = () => {
     return gif.map((el) => {
       return (
